@@ -39,4 +39,5 @@ A smart, client-side biomedical waste monitoring system designed to track health
 
 ## 👤 Author
 
-Developed by [Abhishek Singh](https://github.com/CompileWithAbhishek).
+Developed by [Abhishek Singh](https://github.com/CompileWithAbhishek)  
+B.Tech (Computer Science & Engineering)
