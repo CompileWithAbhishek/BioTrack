@@ -1,0 +1,1804 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>BioTrack | Biomedical Waste Monitoring</title>
+
+    <!-- Tailwind -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- ===============================
+         SIDEBAR
+    ================================ -->
+
+    <aside class="sidebar">
+
+        <div class="brand">
+
+            <div class="brand-icon">
+                <i data-lucide="recycle"></i>
+            </div>
+
+            <div>
+                <h2>BioTrack</h2>
+                <span>Waste Monitoring</span>
+            </div>
+
+        </div>
+
+
+        <div class="sidebar-scroll">
+
+            <div class="menu-title">
+                MAIN
+            </div>
+
+            <nav class="sidebar-nav">
+
+                <a
+                    href="#dashboard"
+                    class="nav-link active"
+                    data-section="dashboard"
+                >
+                    <i data-lucide="layout-dashboard"></i>
+                    <span>Dashboard</span>
+                </a>
+
+                <a
+                    href="#facilities"
+                    class="nav-link"
+                    data-section="facilities"
+                >
+                    <i data-lucide="hospital"></i>
+                    <span>Facilities</span>
+                </a>
+
+                <a
+                    href="#waste-management"
+                    class="nav-link"
+                    data-section="waste-management"
+                >
+                    <i data-lucide="trash-2"></i>
+                    <span>Waste Management</span>
+                </a>
+
+                <a
+                    href="#containers"
+                    class="nav-link"
+                    data-section="containers"
+                >
+                    <i data-lucide="box"></i>
+                    <span>Containers</span>
+                </a>
+
+            </nav>
+
+
+            <div class="menu-title">
+                OPERATIONS
+            </div>
+
+            <nav class="sidebar-nav">
+
+                <a
+                    href="#collection"
+                    class="nav-link"
+                    data-section="collection"
+                >
+                    <i data-lucide="truck"></i>
+                    <span>Collection</span>
+                </a>
+
+                <a
+                    href="#tracking"
+                    class="nav-link"
+                    data-section="tracking"
+                >
+                    <i data-lucide="map"></i>
+                    <span>Tracking</span>
+                </a>
+
+                <a
+                    href="#analytics"
+                    class="nav-link"
+                    data-section="analytics"
+                >
+                    <i data-lucide="chart-column"></i>
+                    <span>Analytics</span>
+                </a>
+
+                <a
+                    href="#alerts"
+                    class="nav-link"
+                    data-section="alerts"
+                >
+                    <i data-lucide="bell"></i>
+                    <span>Alerts</span>
+
+                    <span class="nav-alert-count">
+                        7
+                    </span>
+                </a>
+
+            </nav>
+
+
+            <div class="menu-title">
+                SYSTEM
+            </div>
+
+            <nav class="sidebar-nav">
+
+                <a
+                    href="#settings"
+                    class="nav-link"
+                    data-section="settings"
+                >
+                    <i data-lucide="settings"></i>
+                    <span>Settings</span>
+                </a>
+
+            </nav>
+
+        </div>
+
+
+        <div class="system-status">
+
+            <span class="online-dot"></span>
+
+            <div>
+                <strong>System Online</strong>
+                <small>All services operational</small>
+            </div>
+
+        </div>
+
+    </aside>
+
+
+    <!-- ===============================
+         MAIN CONTENT
+    ================================ -->
+
+    <main class="main-content">
+
+
+        <!-- TOPBAR -->
+
+        <header class="topbar">
+
+            <div>
+                <h1 id="page-title">
+                    Dashboard
+                </h1>
+
+                <p id="page-subtitle">
+                    Biomedical waste monitoring system
+                </p>
+            </div>
+
+
+            <div class="topbar-right">
+
+                <div class="search-box">
+
+                    <i data-lucide="search"></i>
+
+                    <input
+                        id="facility-search"
+                        type="text"
+                        placeholder="Search facilities..."
+                    >
+
+                </div>
+
+
+                <button
+                    class="notification-btn"
+                    id="notification-btn"
+                    type="button"
+                >
+
+                    <i data-lucide="bell"></i>
+
+                    <span></span>
+
+                </button>
+
+
+                <div class="profile">
+
+                    <div class="profile-avatar">
+                        AS
+                    </div>
+
+                    <div>
+                        <strong>Admin</strong>
+                        <small>Government Authority</small>
+                    </div>
+
+                    <i data-lucide="chevron-down"></i>
+
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <!-- ===============================
+             DASHBOARD
+        ================================ -->
+
+        <section
+            id="dashboard"
+            class="content-section active-section"
+        >
+
+            <!-- Welcome -->
+
+            <div class="welcome-section">
+
+                <div>
+                    <h2>
+                        Good Morning 👋
+                    </h2>
+
+                    <p>
+                        Here's what's happening with biomedical waste today.
+                    </p>
+                </div>
+
+                <button
+                    id="add-waste-btn"
+                    class="primary-btn"
+                    type="button"
+                >
+                    <i data-lucide="plus"></i>
+                    Add Waste
+                </button>
+
+            </div>
+
+
+            <!-- Stats -->
+
+            <div class="stats-grid">
+
+                <div class="stat-card">
+
+                    <div class="stat-icon green">
+                        <i data-lucide="recycle"></i>
+                    </div>
+
+                    <div>
+                        <p>Total Waste Today</p>
+                        <h2 id="total-waste">60.4 kg</h2>
+                        <span class="positive">
+                            ↑ 12.4%
+                        </span>
+                        <small>vs yesterday</small>
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon blue">
+                        <i data-lucide="box"></i>
+                    </div>
+
+                    <div>
+                        <p>Active Containers</p>
+                        <h2 id="container-count">4</h2>
+                        <span class="positive">
+                            ↑ 8.2%
+                        </span>
+                        <small>this week</small>
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon orange">
+                        <i data-lucide="truck"></i>
+                    </div>
+
+                    <div>
+                        <p>Pending Collection</p>
+                        <h2 id="pending-collection-count">18</h2>
+                        <span class="warning">
+                            Needs attention
+                        </span>
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon red">
+                        <i data-lucide="triangle-alert"></i>
+                    </div>
+
+                    <div>
+                        <p>Critical Alerts</p>
+                        <h2 id="critical-alert-count">1</h2>
+                        <span class="danger">
+                            Requires action
+                        </span>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- Waste Overview + Monitoring Map -->
+
+            <div class="dashboard-grid">
+
+                <!-- Waste Overview -->
+
+                <section>
+
+                    <div class="section-header">
+
+                        <div>
+                            <h2>Waste Overview</h2>
+                            <p>
+                                Waste generated across registered facilities
+                            </p>
+                        </div>
+
+                        <select id="waste-period">
+
+                            <option value="today">
+                                Today
+                            </option>
+
+                            <option value="week">
+                                This Week
+                            </option>
+
+                            <option value="month">
+                                This Month
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="category-grid">
+
+                        <div class="category-card yellow">
+
+                            <div class="category-header">
+                                <span>●</span>
+                                <strong>Yellow Waste</strong>
+                            </div>
+
+                            <h2>32.4 kg</h2>
+
+                            <p>
+                                Infectious / pathological
+                            </p>
+
+                            <div class="progress">
+                                <div
+                                    class="progress-bar"
+                                    style="width:72%"
+                                ></div>
+                            </div>
+
+                            <small>72% of capacity</small>
+
+                        </div>
+
+
+                        <div class="category-card red">
+
+                            <div class="category-header">
+                                <span>●</span>
+                                <strong>Red Waste</strong>
+                            </div>
+
+                            <h2>18.8 kg</h2>
+
+                            <p>
+                                Contaminated recyclable
+                            </p>
+
+                            <div class="progress">
+                                <div
+                                    class="progress-bar"
+                                    style="width:48%"
+                                ></div>
+                            </div>
+
+                            <small>48% of capacity</small>
+
+                        </div>
+
+
+                        <div class="category-card blue">
+
+                            <div class="category-header">
+                                <span>●</span>
+                                <strong>Blue Waste</strong>
+                            </div>
+
+                            <h2>9.2 kg</h2>
+
+                            <p>
+                                Glass / metallic waste
+                            </p>
+
+                            <div class="progress">
+                                <div
+                                    class="progress-bar"
+                                    style="width:35%"
+                                ></div>
+                            </div>
+
+                            <small>35% of capacity</small>
+
+                        </div>
+
+
+                        <div class="category-card white">
+
+                            <div class="category-header">
+                                <span>●</span>
+                                <strong>White Waste</strong>
+                            </div>
+
+                            <h2>0 kg</h2>
+
+                            <p>
+                                Sharps waste
+                            </p>
+
+                            <div class="progress">
+                                <div
+                                    class="progress-bar"
+                                    style="width:0%"
+                                ></div>
+                            </div>
+
+                            <small>0% of capacity</small>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+                <!-- Monitoring Map -->
+
+                <section>
+
+                    <div class="section-header">
+
+                        <div>
+                            <h2>BioTrack Monitoring Map</h2>
+                            <p>
+                                Click a facility marker to view details
+                            </p>
+                        </div>
+
+                        <button
+                            id="open-map-btn"
+                            class="secondary-btn"
+                            data-section="tracking"
+                            type="button"
+                        >
+                            <i data-lucide="map"></i>
+                            Open Full Map
+                        </button>
+
+                    </div>
+
+
+                    <!-- IMPORTANT:
+                         Map is now a proper relative container
+                    -->
+
+                    <div
+                        id="monitoring-map"
+                        class="monitoring-map"
+                    >
+
+                        <div class="map-road road-one"></div>
+                        <div class="map-road road-two"></div>
+                        <div class="map-road road-three"></div>
+
+                        <div class="map-area-label label-one">
+                            Jaipur Central
+                        </div>
+
+                        <div class="map-area-label label-two">
+                            Healthcare Zone
+                        </div>
+
+                        <div class="map-area-label label-three">
+                            Ward Area
+                        </div>
+
+
+                        <button
+                            class="map-marker marker-one"
+                            data-facility="City Care Clinic"
+                            type="button"
+                        >
+                            <i data-lucide="hospital"></i>
+                        </button>
+
+
+                        <button
+                            class="map-marker marker-two"
+                            data-facility="Mediscan Diagnostics"
+                            type="button"
+                        >
+                            <i data-lucide="microscope"></i>
+                        </button>
+
+
+                        <button
+                            class="map-marker marker-three"
+                            data-facility="Sunrise Hospital"
+                            type="button"
+                        >
+                            <i data-lucide="hospital"></i>
+                        </button>
+
+
+                        <button
+                            class="map-marker marker-four"
+                            data-facility="HealthPlus Clinic"
+                            type="button"
+                        >
+                            <i data-lucide="stethoscope"></i>
+                        </button>
+
+
+                        <div class="map-center-label">
+
+                            <div class="map-center-icon">
+                                <i data-lucide="map-pin"></i>
+                            </div>
+
+                            <strong>
+                                4 Facilities
+                            </strong>
+
+                            <span>
+                                Jaipur Monitoring Area
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+            </div>
+
+
+            <!-- Recent Facilities + Critical Alerts -->
+
+            <div class="dashboard-grid">
+
+                <!-- Recent Facilities -->
+
+                <section class="panel">
+
+                    <div class="panel-header">
+
+                        <div>
+                            <h2>Recent Facilities</h2>
+                            <p>
+                                Registered healthcare facilities
+                            </p>
+                        </div>
+
+                        <button
+                            class="text-btn"
+                            data-section="facilities"
+                            type="button"
+                        >
+                            View All
+                            <i data-lucide="arrow-right"></i>
+                        </button>
+
+                    </div>
+
+
+                    <div
+                        id="facility-list"
+                        class="facility-list"
+                    >
+
+                        <div
+                            class="facility"
+                            data-facility="City Care Clinic"
+                        >
+
+                            <div class="facility-icon green">
+                                <i data-lucide="hospital"></i>
+                            </div>
+
+                            <div class="facility-info">
+
+                                <strong>
+                                    City Care Clinic
+                                </strong>
+
+                                <span>
+                                    Jaipur • Ward 12
+                                </span>
+
+                            </div>
+
+                            <div class="facility-waste">
+                                <strong>16.8 kg</strong>
+                                <span>Today</span>
+                            </div>
+
+                            <span class="status active-status">
+                                Active
+                            </span>
+
+                            <i
+                                class="facility-arrow"
+                                data-lucide="chevron-right"
+                            ></i>
+
+                        </div>
+
+
+                        <div
+                            class="facility"
+                            data-facility="Mediscan Diagnostics"
+                        >
+
+                            <div class="facility-icon blue">
+                                <i data-lucide="microscope"></i>
+                            </div>
+
+                            <div class="facility-info">
+
+                                <strong>
+                                    Mediscan Diagnostics
+                                </strong>
+
+                                <span>
+                                    Jaipur • Ward 8
+                                </span>
+
+                            </div>
+
+                            <div class="facility-waste">
+                                <strong>18.8 kg</strong>
+                                <span>Today</span>
+                            </div>
+
+                            <span class="status active-status">
+                                Active
+                            </span>
+
+                            <i
+                                class="facility-arrow"
+                                data-lucide="chevron-right"
+                            ></i>
+
+                        </div>
+
+
+                        <div
+                            class="facility"
+                            data-facility="Sunrise Hospital"
+                        >
+
+                            <div class="facility-icon green">
+                                <i data-lucide="hospital"></i>
+                            </div>
+
+                            <div class="facility-info">
+
+                                <strong>
+                                    Sunrise Hospital
+                                </strong>
+
+                                <span>
+                                    Jaipur • Ward 5
+                                </span>
+
+                            </div>
+
+                            <div class="facility-waste">
+                                <strong>9.2 kg</strong>
+                                <span>Today</span>
+                            </div>
+
+                            <span class="status active-status">
+                                Active
+                            </span>
+
+                            <i
+                                class="facility-arrow"
+                                data-lucide="chevron-right"
+                            ></i>
+
+                        </div>
+
+
+                        <div
+                            class="facility"
+                            data-facility="HealthPlus Clinic"
+                        >
+
+                            <div class="facility-icon orange">
+                                <i data-lucide="stethoscope"></i>
+                            </div>
+
+                            <div class="facility-info">
+
+                                <strong>
+                                    HealthPlus Clinic
+                                </strong>
+
+                                <span>
+                                    Jaipur • Ward 15
+                                </span>
+
+                            </div>
+
+                            <div class="facility-waste">
+                                <strong>15.6 kg</strong>
+                                <span>Today</span>
+                            </div>
+
+                            <span class="status warning-status">
+                                Pending
+                            </span>
+
+                            <i
+                                class="facility-arrow"
+                                data-lucide="chevron-right"
+                            ></i>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+                <!-- Critical Alerts -->
+
+                <section class="panel critical-panel">
+
+                    <div class="panel-header">
+
+                        <div>
+                            <h2>Critical Alerts</h2>
+                            <p>
+                                Containers requiring attention
+                            </p>
+                        </div>
+
+                        <button
+                            class="text-btn"
+                            data-section="alerts"
+                            type="button"
+                        >
+                            View All
+                            <i data-lucide="arrow-right"></i>
+                        </button>
+
+                    </div>
+
+
+                    <div class="critical-alert-list">
+
+                        <button
+                            class="critical-alert-item critical"
+                            data-alert="CNT-007"
+                            type="button"
+                        >
+
+                            <div class="critical-alert-icon">
+                                <i data-lucide="triangle-alert"></i>
+                            </div>
+
+                            <div class="critical-alert-content">
+
+                                <div class="alert-title-row">
+
+                                    <strong>
+                                        Container CNT-007
+                                    </strong>
+
+                                    <span class="alert-badge critical-badge">
+                                        Critical
+                                    </span>
+
+                                </div>
+
+                                <p>
+                                    94% filled
+                                    <span>•</span>
+                                    Mediscan Diagnostics
+                                </p>
+
+                            </div>
+
+                            <i
+                                class="alert-arrow"
+                                data-lucide="chevron-right"
+                            ></i>
+
+                        </button>
+
+
+                        <button
+                            class="critical-alert-item warning"
+                            data-alert="collection"
+                            type="button"
+                        >
+
+                            <div class="critical-alert-icon">
+                                <i data-lucide="clock-3"></i>
+                            </div>
+
+                            <div class="critical-alert-content">
+
+                                <div class="alert-title-row">
+
+                                    <strong>
+                                        Collection Pending
+                                    </strong>
+
+                                    <span class="alert-badge warning-badge">
+                                        Pending
+                                    </span>
+
+                                </div>
+
+                                <p>
+                                    City Care Clinic
+                                    <span>•</span>
+                                    2 hours ago
+                                </p>
+
+                            </div>
+
+                            <i
+                                class="alert-arrow"
+                                data-lucide="chevron-right"
+                            ></i>
+
+                        </button>
+
+
+                        <button
+                            class="critical-alert-item warning"
+                            data-alert="CNT-019"
+                            type="button"
+                        >
+
+                            <div class="critical-alert-icon">
+                                <i data-lucide="circle-alert"></i>
+                            </div>
+
+                            <div class="critical-alert-content">
+
+                                <div class="alert-title-row">
+
+                                    <strong>
+                                        Container CNT-019
+                                    </strong>
+
+                                    <span class="alert-badge warning-badge">
+                                        Warning
+                                    </span>
+
+                                </div>
+
+                                <p>
+                                    78% filled
+                                    <span>•</span>
+                                    HealthPlus Clinic
+                                </p>
+
+                            </div>
+
+                            <i
+                                class="alert-arrow"
+                                data-lucide="chevron-right"
+                            ></i>
+
+                        </button>
+
+                    </div>
+
+                </section>
+
+            </div>
+
+
+            <!-- Container Monitoring -->
+
+            <section class="container-section">
+
+                <div class="panel-header">
+
+                    <div>
+                        <h2>Container Monitoring</h2>
+                        <p>
+                            Live container capacity status
+                        </p>
+                    </div>
+
+                    <button
+                        class="secondary-btn"
+                        id="container-filter-btn"
+                        type="button"
+                    >
+                        <i data-lucide="sliders-horizontal"></i>
+                        Filter
+                    </button>
+
+                </div>
+
+
+                <div
+                    id="container-grid"
+                    class="container-grid"
+                >
+
+                    <!-- Container 1 -->
+
+                    <div
+                        class="container-card"
+                        data-container="CNT-001"
+                    >
+
+                        <div class="container-top">
+
+                            <span>
+                                CNT-001
+                            </span>
+
+                            <span class="container-status warning-status">
+                                Warning
+                            </span>
+
+                        </div>
+
+                        <h3>
+                            City Care Clinic
+                        </h3>
+
+                        <p>
+                            Yellow Waste
+                        </p>
+
+                        <div class="fill-info">
+                            <strong>16.8 kg</strong>
+                            <span>/ 20 kg</span>
+                        </div>
+
+                        <div class="progress large">
+
+                            <div
+                                class="progress-bar"
+                                style="width:84%"
+                            ></div>
+
+                        </div>
+
+                        <div class="fill-footer">
+                            <span>84% filled</span>
+                            <span>Warning</span>
+                        </div>
+
+                    </div>
+
+
+                    <!-- Container 2 -->
+
+                    <div
+                        class="container-card"
+                        data-container="CNT-007"
+                    >
+
+                        <div class="container-top">
+
+                            <span>
+                                CNT-007
+                            </span>
+
+                            <span class="container-status danger-status">
+                                Critical
+                            </span>
+
+                        </div>
+
+                        <h3>
+                            Mediscan Diagnostics
+                        </h3>
+
+                        <p>
+                            Red Waste
+                        </p>
+
+                        <div class="fill-info">
+                            <strong>18.8 kg</strong>
+                            <span>/ 20 kg</span>
+                        </div>
+
+                        <div class="progress large">
+
+                            <div
+                                class="progress-bar red-progress"
+                                style="width:94%"
+                            ></div>
+
+                        </div>
+
+                        <div class="fill-footer">
+                            <span>94% filled</span>
+                            <span>Critical</span>
+                        </div>
+
+                    </div>
+
+
+                    <!-- Container 3 -->
+
+                    <div
+                        class="container-card"
+                        data-container="CNT-014"
+                    >
+
+                        <div class="container-top">
+
+                            <span>
+                                CNT-014
+                            </span>
+
+                            <span class="container-status active-status">
+                                Normal
+                            </span>
+
+                        </div>
+
+                        <h3>
+                            Sunrise Hospital
+                        </h3>
+
+                        <p>
+                            Blue Waste
+                        </p>
+
+                        <div class="fill-info">
+                            <strong>9.2 kg</strong>
+                            <span>/ 20 kg</span>
+                        </div>
+
+                        <div class="progress large">
+
+                            <div
+                                class="progress-bar blue-progress"
+                                style="width:46%"
+                            ></div>
+
+                        </div>
+
+                        <div class="fill-footer">
+                            <span>46% filled</span>
+                            <span>Normal</span>
+                        </div>
+
+                    </div>
+
+
+                    <!-- Container 4 -->
+
+                    <div
+                        class="container-card"
+                        data-container="CNT-019"
+                    >
+
+                        <div class="container-top">
+
+                            <span>
+                                CNT-019
+                            </span>
+
+                            <span class="container-status warning-status">
+                                Warning
+                            </span>
+
+                        </div>
+
+                        <h3>
+                            HealthPlus Clinic
+                        </h3>
+
+                        <p>
+                            Yellow Waste
+                        </p>
+
+                        <div class="fill-info">
+                            <strong>15.6 kg</strong>
+                            <span>/ 20 kg</span>
+                        </div>
+
+                        <div class="progress large">
+
+                            <div
+                                class="progress-bar"
+                                style="width:78%"
+                            ></div>
+
+                        </div>
+
+                        <div class="fill-footer">
+                            <span>78% filled</span>
+                            <span>Warning</span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- Recent Activity -->
+
+            <section class="activity-section">
+
+                <div class="panel-header">
+
+                    <div>
+                        <h2>Recent Activity</h2>
+                        <p>
+                            Latest system updates
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <div class="activity-list">
+
+                    <div class="activity-item">
+
+                        <div class="activity-icon green">
+                            <i data-lucide="recycle"></i>
+                        </div>
+
+                        <div>
+                            <strong>
+                                New waste recorded
+                            </strong>
+
+                            <p>
+                                City Care Clinic added Yellow Waste
+                            </p>
+                        </div>
+
+                        <time>
+                            10 min ago
+                        </time>
+
+                    </div>
+
+
+                    <div class="activity-item">
+
+                        <div class="activity-icon blue">
+                            <i data-lucide="truck"></i>
+                        </div>
+
+                        <div>
+                            <strong>
+                                Collection completed
+                            </strong>
+
+                            <p>
+                                CNT-014 collected from Sunrise Hospital
+                            </p>
+                        </div>
+
+                        <time>
+                            18 min ago
+                        </time>
+
+                    </div>
+
+
+                    <div class="activity-item">
+
+                        <div class="activity-icon orange">
+                            <i data-lucide="triangle-alert"></i>
+                        </div>
+
+                        <div>
+                            <strong>
+                                Container threshold reached
+                            </strong>
+
+                            <p>
+                                CNT-007 reached 90% capacity
+                            </p>
+                        </div>
+
+                        <time>
+                            32 min ago
+                        </time>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+        </section>
+
+
+        <!-- ===============================
+             OTHER SECTIONS
+        ================================ -->
+
+        <section
+            id="facilities"
+            class="content-section"
+        >
+
+            <div class="inner-header">
+                <div>
+                    <h2>Facilities</h2>
+                    <p>
+                        Manage registered healthcare facilities
+                    </p>
+                </div>
+
+                <button
+                    class="primary-btn"
+                    type="button"
+                    id="facility-add-btn"
+                >
+                    <i data-lucide="plus"></i>
+                    Add Facility
+                </button>
+            </div>
+
+
+            <div class="feature-grid">
+
+                <button
+                    class="feature-panel"
+                    data-facility="City Care Clinic"
+                    type="button"
+                >
+                    <i data-lucide="hospital"></i>
+                    <h3>City Care Clinic</h3>
+                    <p>
+                        Jaipur • Ward 12<br>
+                        3 containers • Active
+                    </p>
+                    <span class="status active-status">
+                        Active
+                    </span>
+                </button>
+
+
+                <button
+                    class="feature-panel"
+                    data-facility="Mediscan Diagnostics"
+                    type="button"
+                >
+                    <i data-lucide="microscope"></i>
+                    <h3>Mediscan Diagnostics</h3>
+                    <p>
+                        Jaipur • Ward 8<br>
+                        4 containers • Active
+                    </p>
+                    <span class="status active-status">
+                        Active
+                    </span>
+                </button>
+
+
+                <button
+                    class="feature-panel"
+                    data-facility="Sunrise Hospital"
+                    type="button"
+                >
+                    <i data-lucide="hospital"></i>
+                    <h3>Sunrise Hospital</h3>
+                    <p>
+                        Jaipur • Ward 5<br>
+                        5 containers • Active
+                    </p>
+                    <span class="status active-status">
+                        Active
+                    </span>
+                </button>
+
+
+                <button
+                    class="feature-panel"
+                    data-facility="HealthPlus Clinic"
+                    type="button"
+                >
+                    <i data-lucide="stethoscope"></i>
+                    <h3>HealthPlus Clinic</h3>
+                    <p>
+                        Jaipur • Ward 15<br>
+                        2 containers • Pending
+                    </p>
+                    <span class="status warning-status">
+                        Pending
+                    </span>
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <section
+            id="waste-management"
+            class="content-section"
+        >
+
+            <div class="inner-header">
+                <div>
+                    <h2>Waste Management</h2>
+                    <p>
+                        Record and monitor biomedical waste
+                    </p>
+                </div>
+
+                <button
+                    id="section-add-waste"
+                    class="primary-btn"
+                    type="button"
+                >
+                    <i data-lucide="plus"></i>
+                    Add Waste
+                </button>
+            </div>
+
+            <div class="feature-grid">
+
+                <div class="feature-panel">
+                    <i data-lucide="recycle"></i>
+                    <h3>Waste Recording</h3>
+                    <p>
+                        Record waste generated by registered facilities.
+                    </p>
+                </div>
+
+                <div class="feature-panel">
+                    <i data-lucide="layers"></i>
+                    <h3>Waste Categories</h3>
+                    <p>
+                        Monitor Yellow, Red, Blue and White waste streams.
+                    </p>
+                </div>
+
+                <div class="feature-panel">
+                    <i data-lucide="calendar-days"></i>
+                    <h3>Date Tracking</h3>
+                    <p>
+                        Track waste generation date and time.
+                    </p>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <section
+            id="containers"
+            class="content-section"
+        >
+
+            <div class="inner-header">
+                <div>
+                    <h2>Containers</h2>
+                    <p>
+                        Monitor container capacity and status
+                    </p>
+                </div>
+            </div>
+
+            <div
+                id="all-container-grid"
+                class="container-grid"
+            ></div>
+
+        </section>
+
+
+        <section
+            id="collection"
+            class="content-section"
+        >
+
+            <div class="inner-header">
+                <div>
+                    <h2>Collection</h2>
+                    <p>
+                        Manage biomedical waste collection
+                    </p>
+                </div>
+            </div>
+
+            <div class="feature-grid">
+
+                <div class="feature-panel">
+                    <i data-lucide="clock-3"></i>
+                    <h3>Pending Collections</h3>
+                    <p>
+                        18 collections currently require attention.
+                    </p>
+                </div>
+
+                <div class="feature-panel">
+                    <i data-lucide="truck"></i>
+                    <h3>Collector Assignment</h3>
+                    <p>
+                        Assign field workers to pending collection requests.
+                    </p>
+                </div>
+
+                <div class="feature-panel">
+                    <i data-lucide="check-circle-2"></i>
+                    <h3>Completed Collections</h3>
+                    <p>
+                        Track completed collection activities.
+                    </p>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <section
+            id="tracking"
+            class="content-section"
+        >
+
+            <div class="inner-header">
+                <div>
+                    <h2>Tracking</h2>
+                    <p>
+                        Monitor healthcare facilities and containers
+                    </p>
+                </div>
+            </div>
+
+
+            <div
+                class="monitoring-map tracking-map"
+            >
+
+                <div class="map-road road-one"></div>
+                <div class="map-road road-two"></div>
+                <div class="map-road road-three"></div>
+
+                <div class="map-area-label label-one">
+                    Jaipur Central
+                </div>
+
+                <div class="map-area-label label-two">
+                    Healthcare Zone
+                </div>
+
+                <div class="map-area-label label-three">
+                    Ward Area
+                </div>
+
+
+                <button
+                    class="map-marker marker-one"
+                    data-facility="City Care Clinic"
+                    type="button"
+                >
+                    <i data-lucide="hospital"></i>
+                </button>
+
+                <button
+                    class="map-marker marker-two"
+                    data-facility="Mediscan Diagnostics"
+                    type="button"
+                >
+                    <i data-lucide="microscope"></i>
+                </button>
+
+                <button
+                    class="map-marker marker-three"
+                    data-facility="Sunrise Hospital"
+                    type="button"
+                >
+                    <i data-lucide="hospital"></i>
+                </button>
+
+                <button
+                    class="map-marker marker-four"
+                    data-facility="HealthPlus Clinic"
+                    type="button"
+                >
+                    <i data-lucide="stethoscope"></i>
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <section
+            id="analytics"
+            class="content-section"
+        >
+
+            <div class="inner-header">
+                <div>
+                    <h2>Analytics</h2>
+                    <p>
+                        Waste monitoring analytics
+                    </p>
+                </div>
+            </div>
+
+            <div class="feature-grid">
+
+                <div class="feature-panel">
+                    <i data-lucide="chart-column"></i>
+                    <h3>Waste Trends</h3>
+                    <p>
+                        Analyze waste generation trends over time.
+                    </p>
+                </div>
+
+                <div class="feature-panel">
+                    <i data-lucide="pie-chart"></i>
+                    <h3>Category Distribution</h3>
+                    <p>
+                        Compare different biomedical waste categories.
+                    </p>
+                </div>
+
+                <div class="feature-panel">
+                    <i data-lucide="activity"></i>
+                    <h3>System Activity</h3>
+                    <p>
+                        Monitor system activity and collection performance.
+                    </p>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <section
+            id="alerts"
+            class="content-section"
+        >
+
+            <div class="inner-header">
+                <div>
+                    <h2>Alerts</h2>
+                    <p>
+                        Monitor containers and collections requiring attention
+                    </p>
+                </div>
+            </div>
+
+
+            <div class="alerts-page-list">
+
+                <button
+                    class="critical-alert-item critical"
+                    data-alert="CNT-007"
+                    type="button"
+                >
+
+                    <div class="critical-alert-icon">
+                        <i data-lucide="triangle-alert"></i>
+                    </div>
+
+                    <div class="critical-alert-content">
+
+                        <div class="alert-title-row">
+                            <strong>
+                                Container CNT-007
+                            </strong>
+
+                            <span class="alert-badge critical-badge">
+                                Critical
+                            </span>
+                        </div>
+
+                        <p>
+                            94% filled • Mediscan Diagnostics
+                        </p>
+
+                    </div>
+
+                    <i
+                        class="alert-arrow"
+                        data-lucide="chevron-right"
+                    ></i>
+
+                </button>
+
+
+                <button
+                    class="critical-alert-item warning"
+                    data-alert="collection"
+                    type="button"
+                >
+
+                    <div class="critical-alert-icon">
+                        <i data-lucide="clock-3"></i>
+                    </div>
+
+                    <div class="critical-alert-content">
+
+                        <div class="alert-title-row">
+                            <strong>
+                                Collection Pending
+                            </strong>
+
+                            <span class="alert-badge warning-badge">
+                                Pending
+                            </span>
+                        </div>
+
+                        <p>
+                            City Care Clinic • 2 hours ago
+                        </p>
+
+                    </div>
+
+                    <i
+                        class="alert-arrow"
+                        data-lucide="chevron-right"
+                    ></i>
+
+                </button>
+
+
+                <button
+                    class="critical-alert-item warning"
+                    data-alert="CNT-019"
+                    type="button"
+                >
+
+                    <div class="critical-alert-icon">
+                        <i data-lucide="circle-alert"></i>
+                    </div>
+
+                    <div class="critical-alert-content">
+
+                        <div class="alert-title-row">
+                            <strong>
+                                Container CNT-019
+                            </strong>
+
+                            <span class="alert-badge warning-badge">
+                                Warning
+                            </span>
+                        </div>
+
+                        <p>
+                            78% filled • HealthPlus Clinic
+                        </p>
+
+                    </div>
+
+                    <i
+                        class="alert-arrow"
+                        data-lucide="chevron-right"
+                    ></i>
+
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <section
+            id="settings"
+            class="content-section"
+        >
+
+            <div class="inner-header">
+                <div>
+                    <h2>Settings</h2>
+                    <p>
+                        BioTrack system configuration
+                    </p>
+                </div>
+            </div>
+
+            <div class="settings-panel">
+                <div>
+                    <strong>System Monitoring</strong>
+                    <p>
+                        Keep facility monitoring active.
+                    </p>
+                </div>
+
+                <span class="status active-status">
+                    Enabled
+                </span>
+            </div>
+
+            <div class="settings-panel">
+                <div>
+                    <strong>Notifications</strong>
+                    <p>
+                        Critical container alerts are enabled.
+                    </p>
+                </div>
+
+                <span class="status active-status">
+                    Enabled
+                </span>
+            </div>
+
+        </section>
+
+
+        <!-- Footer -->
+
+        <footer class="footer">
+            © 2026 BioTrack. All rights reserved.
+        </footer>
+
+    </main>
+
+
+    <!-- JS -->
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
